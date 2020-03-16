@@ -4,15 +4,10 @@ public class Funcionario {
 
 	private String nome;
 	private String cpf;
-	private double salario;
-	protected double percentualBonificacao;
-	
-	public Funcionario() {
-		this.percentualBonificacao = 0.1;
-	}
+	protected double salario;
 	
 	public double getBonificacao() {
-		return this.salario * percentualBonificacao;
+		return this.salario * 0.1;
 	}
 	
 	public String getNome() {

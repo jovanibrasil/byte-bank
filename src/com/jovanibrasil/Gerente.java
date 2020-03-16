@@ -6,7 +6,11 @@ public class Gerente extends Funcionario {
 
 	public Gerente() {
 		super();
-		this.percentualBonificacao = 1.0;
+	}
+	
+	@Override
+	public double getBonificacao() {
+		return super.salario * 0.1;
 	}
 	
 	public void setSenha(int senha) {
