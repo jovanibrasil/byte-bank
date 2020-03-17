@@ -1,5 +1,6 @@
 package com.jovanibrasil.model.conta;
 
+import com.jovanibrasil.exceptions.ContaException;
 import com.jovanibrasil.model.funcionarios.Titular;
 
 public class ContaCorrente extends Conta implements Tributavel {
@@ -9,9 +10,9 @@ public class ContaCorrente extends Conta implements Tributavel {
 	}	
 	
 	@Override
-	public boolean sacar(double valor) {
+	public void sacar(double valor) throws ContaException {
 		double valorComTaxa = valor + 0.2;
-		return super.sacar(valorComTaxa);
+		super.sacar(valorComTaxa);
 	}
 
 	@Override

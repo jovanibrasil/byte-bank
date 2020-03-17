@@ -1,5 +1,6 @@
 package com.jovanibrasil;
 
+import com.jovanibrasil.exceptions.ContaException;
 import com.jovanibrasil.model.conta.CalculadorImposto;
 import com.jovanibrasil.model.conta.ContaCorrente;
 import com.jovanibrasil.model.conta.ContaPoupanca;
@@ -41,7 +42,11 @@ public class Main {
 		cc.depositar(1000.0);
 		cp.depositar(2000.0);
 		
-		cc.transfere(500, cp);
+		try {
+			cc.transfere(500, cp);
+		} catch (ContaException e) {
+			System.out.println("Error: " + e.getMessage());
+		}
 		
 		System.out.println("Saldo CC: " + cc.getSaldo());
 		System.out.println("Saldo CP: " + cp.getSaldo());
@@ -58,6 +63,12 @@ public class Main {
 		cdi.registra(cc);
 		cdi.registra(sdv);
 		System.out.println("Tributos: " + cdi.getTotalImposto());
+		
+		try {
+			cc.sacar(2000);
+		} catch (ContaException e) {
+			System.out.println("Error: " + e.getMessage());
+		}
 		
 	}
 

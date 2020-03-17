@@ -1,5 +1,6 @@
 package com.jovanibrasil.model.conta;
 
+import com.jovanibrasil.exceptions.ContaException;
 import com.jovanibrasil.model.funcionarios.Titular;
 
 public abstract class Conta {
@@ -12,7 +13,14 @@ public abstract class Conta {
 	private Titular titular;
 	
 	public Conta(int agencia, int numero, Titular titular) {
-		// TODO validation
+		
+		if(agencia < 1) {
+			throw new IllegalArgumentException("Agencia inválida");
+		}
+		if(numero < 1) {
+			throw new IllegalArgumentException("Numero de conta inválido");
+		}
+		
 		this.agencia = agencia;
 		this.numero = numero;
 		this.titular = titular;
@@ -25,20 +33,20 @@ public abstract class Conta {
 		}
 	}
 	
-	public boolean sacar(double valor) {
-		if(valor > 0 && this.saldo >= valor) {
-			this.saldo -= valor;
-			return true;
+	public void sacar(double valor) throws ContaException {
+		if(valor < 0) {
+			throw new ContaException("Valor inválido (negativo)");	
 		}
-		return false;
+		if(this.saldo < valor) {
+			throw new ContaException("Saldo insuficiente - Saldo: " + this.saldo + " Sacado: " + valor);
+		}
+		
+		this.saldo -= valor;
 	}
 	
-	public boolean transfere(double valor, Conta destino) {
-		if(this.sacar(valor)) {
-			destino.depositar(valor);
-			return true;
-		}
-		return false;
+	public void transfere(double valor, Conta destino) throws ContaException {
+		this.sacar(valor);
+		destino.depositar(valor);
 	}
 	
 	public double getSaldo() {
