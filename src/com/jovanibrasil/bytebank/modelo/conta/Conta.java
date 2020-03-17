@@ -3,6 +3,12 @@ package com.jovanibrasil.bytebank.modelo.conta;
 import com.jovanibrasil.bytebank.exceptions.ContaException;
 import com.jovanibrasil.bytebank.modelo.funcionarios.Titular;
 
+/**
+ * Classe que representa uma conta do banco.
+ * 
+ * @author jovani.brasil
+ *
+ */
 public abstract class Conta {
 
 	private static int totalContas = 0;
@@ -12,6 +18,14 @@ public abstract class Conta {
 	private int numero;
 	private Titular titular;
 	
+	/**
+	 * Construtor para inicializar o objeto Conta a partir
+	 * da agência e número.
+	 * 
+	 * @param agencia
+	 * @param numero
+	 * @param titular
+	 */
 	public Conta(int agencia, int numero, Titular titular) {
 		
 		if(agencia < 1) {
@@ -33,6 +47,12 @@ public abstract class Conta {
 		}
 	}
 	
+	/**
+	 * Valor precisa ser maior que o saldo.
+	 * 
+	 * @param valor
+	 * @throws ContaException
+	 */
 	public void sacar(double valor) throws ContaException {
 		if(valor < 0) {
 			throw new ContaException("Valor inválido (negativo)");	

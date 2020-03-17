@@ -1,5 +1,11 @@
 package com.jovanibrasil.bytebank.modelo.funcionarios;
 
+/**
+ * Classe que representa um cliente do banco.
+ * 
+ * @author Jovani Brasil.
+ *
+ */
 public class Cliente implements Autenticavel {
 
 	private AutenticacaoUtil autenticador;
