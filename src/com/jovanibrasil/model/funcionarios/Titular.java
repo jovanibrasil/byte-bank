@@ -1,4 +1,4 @@
-package com.jovanibrasil;
+package com.jovanibrasil.model.funcionarios;
 
 public class Titular {
 	

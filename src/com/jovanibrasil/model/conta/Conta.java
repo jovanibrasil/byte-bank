@@ -1,10 +1,12 @@
-package com.jovanibrasil;
+package com.jovanibrasil.model.conta;
 
-public class Conta {
+import com.jovanibrasil.model.funcionarios.Titular;
+
+public abstract class Conta {
 
 	private static int totalContas = 0;
 	
-	private double saldo;
+	protected double saldo;
 	private int agencia;
 	private int numero;
 	private Titular titular;

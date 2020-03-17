@@ -1,14 +1,12 @@
-package com.jovanibrasil;
+package com.jovanibrasil.model.funcionarios;
 
-public class Funcionario {
+public abstract class Funcionario {
 
 	private String nome;
 	private String cpf;
-	protected double salario;
+	private double salario;
 	
-	public double getBonificacao() {
-		return this.salario * 0.1;
-	}
+	public abstract double getBonificacao();
 	
 	public String getNome() {
 		return nome;
