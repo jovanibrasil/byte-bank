@@ -36,8 +36,8 @@ public class Main {
 		
 		System.out.println(controle.getSoma());
 		
-		ContaCorrente cc = new ContaCorrente(123, 123, new Titular("Jovani", "123.123.123-12", "DEV"));
-		ContaPoupanca cp = new ContaPoupanca(123, 123, new Titular("Brasil", "123.123.123-12", "DB"));
+		ContaCorrente cc = new ContaCorrente(123, 456, new Titular("Jovani", "123.123.123-12", "DEV"));
+		ContaPoupanca cp = new ContaPoupanca(123, 456, new Titular("Brasil", "123.123.123-12", "DB"));
 		
 		cc.depositar(1000.0);
 		cp.depositar(2000.0);
@@ -69,6 +69,10 @@ public class Main {
 		} catch (ContaException e) {
 			System.out.println("Error: " + e.getMessage());
 		}
+		
+		System.out.println(cc);
+		System.out.println(cp);
+		
 		
 	}
 
